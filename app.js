@@ -10,6 +10,7 @@ app.get("/todos", (req, res) => {
 
     todoModle
     .find({})
+    .where({isCompleted:true})
     .then(result=>{
         res.json(result);
     })
