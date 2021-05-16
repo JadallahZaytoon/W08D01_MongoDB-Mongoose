@@ -8,6 +8,14 @@ const port = 3000;
 
 app.get("/todos", (req, res) => {
 
+    todoModle
+    .find({})
+    .then(result=>{
+        res.json(result);
+    })
+    .catch(err=>{
+        res.json(err);
+    });
 
 
 });
