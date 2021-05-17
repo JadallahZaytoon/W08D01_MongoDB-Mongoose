@@ -43,7 +43,24 @@ todo
 // isCompleted, and priority
 
 
-app.put("/update/todo", (req, res) => {});
+app.put("/update/todo", (req, res) => {
+
+    let {task, description, deadline, 
+        isCompleted,priority} = req.body;
+
+    todoModle
+    .findOneAndUpdate(
+    {task}
+    ,req.body
+    ,{new:true})
+    .then((result)=>{
+        res.json(result)
+    })
+    .catch((err)=>{res.send(err)});
+    
+
+
+});
 
 
 app.delete("/delete/todo", (req, res) => {});
