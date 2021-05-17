@@ -63,7 +63,22 @@ app.put("/update/todo", (req, res) => {
 });
 
 
-app.delete("/delete/todo", (req, res) => {});
+app.delete("/delete/todo", (req, res) => {
+
+    let {task, description, deadline, 
+        isCompleted,priority} = req.body;
+
+    todoModle
+        .findOneAndDelete({task}
+            ,req.body
+            )
+            .then((result)=>{
+                res.json(result)
+            })
+            .catch((err)=>{res.send(err)});
+        
+
+});
 
 
 app.listen(port, () => {
